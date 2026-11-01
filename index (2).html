@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Ilustración</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#000}
+  body{display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:Georgia,"Times New Roman",serif}
+  .art{
+    display:block;
+    max-width:100vw;max-height:100vh;max-height:100dvh;
+    width:auto;height:auto;
+    object-fit:contain;
+    opacity:0;transition:opacity 1.4s ease;
+  }
+  .art.ready{opacity:1}
+  .back{
+    position:fixed;left:max(1rem,env(safe-area-inset-left));bottom:max(1rem,env(safe-area-inset-bottom));
+    color:#e6e6e6;text-decoration:none;font-size:.9rem;letter-spacing:.08em;
+    text-shadow:0 0 6px rgba(255,255,255,.5),0 0 16px rgba(255,255,255,.25);
+    background:rgba(0,0,0,.45);padding:.35rem .7rem;border-radius:2px;
+    opacity:.75;transition:opacity .3s ease,text-shadow .3s ease;
+  }
+  .back:hover,.back:focus-visible{opacity:1;color:#fff;text-shadow:0 0 10px rgba(255,255,255,.9),0 0 26px rgba(255,255,255,.5);outline:none}
+  @media (prefers-reduced-motion:reduce){.art{transition:none}.back{transition:none}}
+</style>
+</head>
+<body>
+  <img class="art" id="art" src="ilustracion.png" alt="Dibujo a grafito de una mujer que sostiene una criatura insectoide, con dos esferas y cuadrados pixelados; a los lados, esqueletos alados con un disquete y una tarjeta gráfica.">
+  <a class="back" href="https://metafobian-code.github.io/metafobia/#ilustraciones-ia-y-absurdos">← Metafobia</a>
+  <script>
+    const art = document.getElementById("art");
+    const show = () => art.classList.add("ready");
+    if (art.complete) show(); else art.addEventListener("load", show);
+  </script>
+</body>
+</html>
